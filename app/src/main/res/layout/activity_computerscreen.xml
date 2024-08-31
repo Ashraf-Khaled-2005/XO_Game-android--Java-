@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Computerscreen">
+    <TextView
+        android:id="@+id/player1_com"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="36dp"
+        android:text="Player 1"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/player2_com"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="68dp"
+        android:text="Computer"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/player_status_com"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="0 : 0"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/player1_com" />
+
+    <LinearLayout
+        android:id="@+id/linear1_com"
+        android:weightSum="3"
+        app:layout_constraintTop_toBottomOf="@id/player_status_com"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/btn_com_0"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#413f43"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="60sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_weight="1"
+
+            android:id="@+id/btn_com_1"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#413f43"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="60sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_weight="1"
+
+            android:id="@+id/btn_com_2"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#413f43"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="60sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linear2_com"
+        android:weightSum="3"
+        app:layout_constraintTop_toBottomOf="@id/linear1_com"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/btn_com_3"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:layout_marginLeft="3dp"
+            android:backgroundTint="#413f43"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="60sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_weight="1"
+
+            android:id="@+id/btn_com_4"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:layout_marginLeft="3dp"
+            android:backgroundTint="#413f43"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="60sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_weight="1"
+
+            android:id="@+id/btn_com_5"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:layout_marginLeft="3dp"
+            android:backgroundTint="#413f43"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="60sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linear3_com"
+
+        android:weightSum="3"
+        app:layout_constraintTop_toBottomOf="@id/linear2_com"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/btn_com_6"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:layout_marginLeft="3dp"
+            android:backgroundTint="#413f43"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="60sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_weight="1"
+
+            android:id="@+id/btn_com_7"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:layout_marginLeft="3dp"
+            android:backgroundTint="#413f43"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="60sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_weight="1"
+
+            android:id="@+id/btn_com_8"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:layout_marginLeft="3dp"
+            android:backgroundTint="#413f43"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="60sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/Rest_btn_com"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/linear3_com"
+        android:text="RestGame"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:backgroundTint="#34f"
+        android:layout_marginTop="5dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
