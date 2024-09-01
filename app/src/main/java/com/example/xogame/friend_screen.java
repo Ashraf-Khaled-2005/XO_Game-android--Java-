@@ -19,8 +19,10 @@ public class friend_screen extends AppCompatActivity implements View.OnClickList
     Button [] btns=new Button[9];
     Button restgame;
     TextView player1,player2;
-    Boolean activieplayer;
+    Boolean activieplayer,issoundon;
     String selectedOption;
+    private  Shared_pref sharedPref;
+
     int player1score,player2score;
     int rount;
     Drawable defaultBackground;
@@ -39,6 +41,8 @@ public class friend_screen extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        issoundon=sharedPref.GetBool("IsSoundOn");
+
         setContentView(R.layout.activity_friend_screen);
 
         restgame=findViewById(R.id.Rest_btn);
@@ -94,7 +98,7 @@ public class friend_screen extends AppCompatActivity implements View.OnClickList
 
 
             }
-
+            if(issoundon)
             player.start();
             gamestate[id]=1;
         }else{
@@ -104,6 +108,7 @@ public class friend_screen extends AppCompatActivity implements View.OnClickList
 //            ((Button) view).setText("O");
             else
                 ((Button) view).setBackground(getDrawable(R.drawable.groupx));
+            if(issoundon)
 
             player.start();
 

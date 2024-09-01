@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.media.MediaPlayer;
@@ -35,7 +36,7 @@ public class settingScreen extends AppCompatActivity {
         sharedPref=new Shared_pref(this);
 
         try {
-            musicon=    sharedPref.GetBool("IsMusicOn");
+            musicon= sharedPref.GetBool("IsMusicOn");
             soundon=sharedPref.GetBool("IsSoundOn");
             lang.GetLocal();
         }catch (Exception e){
@@ -59,15 +60,16 @@ public class settingScreen extends AppCompatActivity {
         // Handle music switch changes
         musicSwitch.setOnCheckedChangeListener((compoundButton, isChecked) -> {
             if (isChecked) {
+                startService(new Intent(this, MediaPlayerService.class));
 
-             sharedPref.AddBool("IsMusicOn",isChecked);
-                player1.start();
             } else {
-                player1.pause();
-                sharedPref.AddBool("IsMusicOn",isChecked);
+
+                stopService(new Intent(this, MediaPlayerService.class));
 
 
-            }
+            }sharedPref.AddBool("IsMusicOn",isChecked);
+
+
         });
 
         soundSwitch.setOnCheckedChangeListener((compoundButton, isChecked) -> {
@@ -128,7 +130,6 @@ public class settingScreen extends AppCompatActivity {
         AlertDialog mdialog = mbuilder.create();
         mdialog.show();
     }
-
 
 
 }

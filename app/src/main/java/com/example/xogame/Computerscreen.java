@@ -22,12 +22,12 @@ public class Computerscreen extends AppCompatActivity implements View.OnClickLis
     TextView playerstatus;
     Drawable defaultBackground;
     private ImageView gifImageView;
-
+private  Shared_pref sharedPref;
 
     Button[] btns=new Button[9];
     Button restgame;
     TextView player1,player2;
-    Boolean activieplayer;
+    Boolean activieplayer,issoundon;
     private  String selected;
     int player1score,player2score;
     int rount;
@@ -45,6 +45,8 @@ public class Computerscreen extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sharedPref=new Shared_pref(this);
+        issoundon=sharedPref.GetBool("IsSoundOn");
         setContentView(R.layout.activity_computerscreen);
         restgame=findViewById(R.id.Rest_btn_com);
         playerstatus=findViewById(R.id.player_status_com);
@@ -94,7 +96,7 @@ public class Computerscreen extends AppCompatActivity implements View.OnClickLis
             else
                 ((Button) view).setBackground(getDrawable(R.drawable.groupo));
 
-
+            if(issoundon)
             player.start();
             gamestate[id]=1;
         }else{
@@ -102,7 +104,7 @@ public class Computerscreen extends AppCompatActivity implements View.OnClickLis
                 ((Button) view).setBackground(getDrawable(R.drawable.groupo));
             else
                 ((Button) view).setBackground(getDrawable(R.drawable.groupx));
-
+            if(issoundon)
             player.start();
 
             gamestate[id]=2;

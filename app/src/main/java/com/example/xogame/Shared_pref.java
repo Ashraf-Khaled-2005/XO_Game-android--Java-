@@ -16,6 +16,7 @@ private  Context context;
 
     public void AddBool(String key,Boolean value){
         edit.putBoolean(key,value);
+        edit.apply();
 
     }
     public Boolean GetBool(String key){
