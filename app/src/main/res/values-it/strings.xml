@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">XOGame</string>
+    <string name="Setting">Impostazioni</string>
+    <string name="Get_Started">Iniziare</string>
+    <string name="Exit">Uscita</string>
+    <string name="Computer">Computer</string>
+    <string name="Friend">Amico</string>
+    <string name="sound">suono</string>
+    <string name="language">lingua</string>
+    <string name="player">giocatore</string>
+    <string name="music">musica</string>
+    <string name="continue_text">continuare</string>
+    <string name="first_name">Nome di battesimo</string>
+    <string name="secend_name">secondo_nome</string>
+    <string name="restgame">Riposare il gioco</string>
+</resources>

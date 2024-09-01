@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,10 +20,15 @@ import java.util.Random;
 public class Computerscreen extends AppCompatActivity implements View.OnClickListener {
     MediaPlayer player;
     TextView playerstatus;
+    Drawable defaultBackground;
+    private ImageView gifImageView;
+
+
     Button[] btns=new Button[9];
     Button restgame;
     TextView player1,player2;
     Boolean activieplayer;
+    private  String selected;
     int player1score,player2score;
     int rount;
     // 1 player1
@@ -44,9 +51,11 @@ public class Computerscreen extends AppCompatActivity implements View.OnClickLis
         player1=findViewById(R.id.player1_com);
         player2=findViewById(R.id.player2_com);
         Intent intent = getIntent();
+        gifImageView = findViewById(R.id.gif_com);
+
 
         // Get the extras passed from the previous activity
-        String selectedOption = intent.getStringExtra("select");
+         selected = intent.getStringExtra("select");
         String firstName = intent.getStringExtra("first");
         player1.setText(firstName);
         for (int i = 0; i < 9; i++) {
@@ -57,6 +66,7 @@ public class Computerscreen extends AppCompatActivity implements View.OnClickLis
 
         }
 
+        defaultBackground = btns[0].getBackground();
 
         rount=0;
         activieplayer=true;
@@ -79,13 +89,20 @@ public class Computerscreen extends AppCompatActivity implements View.OnClickLis
         String btn_id=view.getResources().getResourceEntryName(view.getId());
         int id=Integer.parseInt(btn_id.substring(btn_id.length()-1,btn_id.length()));
         if(activieplayer){
-            ((Button) view).setText("X");
-            ((Button) view).setTextColor(Color.parseColor("#FFFFFF"));
+            if(selected.equals("x"))
+                ((Button) view).setBackground(getDrawable(R.drawable.groupx));
+            else
+                ((Button) view).setBackground(getDrawable(R.drawable.groupo));
+
 
             player.start();
             gamestate[id]=1;
         }else{
-            ((Button) view).setText("O");
+            if(selected.equals("x"))
+                ((Button) view).setBackground(getDrawable(R.drawable.groupo));
+            else
+                ((Button) view).setBackground(getDrawable(R.drawable.groupx));
+
             player.start();
 
             gamestate[id]=2;
@@ -94,12 +111,16 @@ public class Computerscreen extends AppCompatActivity implements View.OnClickLis
         if (checkwinner()) {
 
             if (activieplayer) {
+                gifImageView.setImageResource(R.drawable.win); // Show the win GIF
+                gifImageView.setVisibility(View.VISIBLE);
                 player=MediaPlayer.create(getBaseContext(),R.raw.win);
                 player.start();
                 Toast.makeText(this, "Player 1 wins!", Toast.LENGTH_SHORT).show();
                 player1score++;
                 playerstatus.setText(player1score+":"+player2score);
             } else {
+                gifImageView.setImageResource(R.drawable.loser); // Show the win GIF
+                gifImageView.setVisibility(View.VISIBLE);
                 player=MediaPlayer.create(getBaseContext(),R.raw.fail);
 
                 Toast.makeText(this, "Player 2 wins!", Toast.LENGTH_SHORT).show();
@@ -109,6 +130,12 @@ public class Computerscreen extends AppCompatActivity implements View.OnClickLis
                 playerstatus.setText(player1score+":"+player2score);
             }
             disableAllButtons();
+            gifImageView.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    gifImageView.setVisibility(View.GONE);
+                }
+            }, 2000);
 
         } else if (rount == 9) {
             Toast.makeText(this, "Draw!", Toast.LENGTH_SHORT).show();
@@ -140,7 +167,7 @@ public class Computerscreen extends AppCompatActivity implements View.OnClickLis
     public  void playagain(){
 
         for (int i = 0; i < 9; i++) {
-            btns[i].setText("");
+            btns[i].setBackground(defaultBackground);
             gamestate[i]=-1;
         }
         rount=0;
@@ -167,16 +194,27 @@ public class Computerscreen extends AppCompatActivity implements View.OnClickLis
         } while (gamestate[move] != -1);
 
         gamestate[move] = 2;
-        btns[move].setText("O");
+        if(selected.equals("x"))
+            btns[move].setBackground(getDrawable(R.drawable.groupo));
+        else {
+            btns[move].setBackground(getDrawable(R.drawable.groupx));
+        }
+
 
         rount++;
         if (checkwinner()) {
             player2score ++;
             playerstatus.setText(player1score+":"+player2score);
             player=MediaPlayer.create(getBaseContext(),R.raw.fail);
-
+            gifImageView.setImageResource(R.drawable.loser); // Show the win GIF
+            gifImageView.setVisibility(View.VISIBLE);
             Toast.makeText(this, "Player 2 wins!", Toast.LENGTH_SHORT).show();
-
+            gifImageView.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    gifImageView.setVisibility(View.GONE);
+                }
+            }, 2000);
             player.start();
             disableAllButtons();
         } else if (rount == 9) {

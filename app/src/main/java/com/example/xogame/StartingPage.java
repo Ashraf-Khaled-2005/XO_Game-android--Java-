@@ -17,10 +17,21 @@ public class StartingPage extends AppCompatActivity {
     MediaPlayer player;
     SharedPreferences sp;
     private Boolean musicOn;
+    private  Language lang;
+    private String curLang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        lang =new Language(getBaseContext());
+        try {
+       curLang=     lang.GetLocal();
+
+        }catch (Exception e){
+            lang.setLocale("en");
+            curLang=lang.curlang;
+
+        }
         setContentView(R.layout.activity_starting_page);
         setteing = findViewById(R.id.setteing);
         sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
@@ -52,5 +63,16 @@ public class StartingPage extends AppCompatActivity {
 
             }
         });
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+       String newlang=  lang.GetLocal();
+        if (!curLang.equals(newlang)) {
+            recreate();  // Restart the activity to apply the new language
+        }
     }
 }

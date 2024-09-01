@@ -4,13 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,8 +20,11 @@ public class friend_screen extends AppCompatActivity implements View.OnClickList
     Button restgame;
     TextView player1,player2;
     Boolean activieplayer;
+    String selectedOption;
     int player1score,player2score;
     int rount;
+    Drawable defaultBackground;
+
     // 1 player1
     //2 player2
     int[]gamestate={-1,-1,-1,-1,-1,-1,-1,-1,-1};
@@ -46,7 +48,7 @@ public class friend_screen extends AppCompatActivity implements View.OnClickList
         Intent intent = getIntent();
 
         // Get the extras passed from the previous activity
-        String selectedOption = intent.getStringExtra("select");
+         selectedOption = intent.getStringExtra("select");
         String firstName = intent.getStringExtra("first");
         String secendName = intent.getStringExtra("secend");
         player1.setText(firstName);
@@ -59,6 +61,7 @@ public class friend_screen extends AppCompatActivity implements View.OnClickList
             btns[i].setOnClickListener(this); // Set the OnClickListener for each button
 
         }
+        defaultBackground = btns[0].getBackground();
 
         rount=0;
         activieplayer=true;
@@ -82,20 +85,34 @@ public class friend_screen extends AppCompatActivity implements View.OnClickList
         String btn_id=view.getResources().getResourceEntryName(view.getId());
         int id=Integer.parseInt(btn_id.substring(btn_id.length()-1,btn_id.length()));
         if(activieplayer){
-            ((Button) view).setText("X");
-            ((Button) view).setTextColor(Color.parseColor("#FFFFFF"));
+            if(selectedOption.equals("x"))
+//            ((Button) view).setText("X");
+                ((Button) view).setBackground(getDrawable(R.drawable.groupx));
+
+            else{
+                ((Button) view).setBackground(getDrawable(R.drawable.groupo));
+
+
+            }
 
             player.start();
             gamestate[id]=1;
         }else{
-            ((Button) view).setText("O");
+            if(selectedOption.equals("x"))
+                ((Button) view).setBackground(getDrawable(R.drawable.groupo));
+
+//            ((Button) view).setText("O");
+            else
+                ((Button) view).setBackground(getDrawable(R.drawable.groupx));
+
             player.start();
 
             gamestate[id]=2;
         }
         rount++;
         if (checkwinner()) {
-
+            ImageView winGif = findViewById(R.id.gif);
+            winGif.setVisibility(View.VISIBLE);
             if (activieplayer) {
                 player=MediaPlayer.create(getBaseContext(),R.raw.win);
                 player.start();
@@ -112,6 +129,12 @@ public class friend_screen extends AppCompatActivity implements View.OnClickList
                 playerstatus.setText(player1score+":"+player2score);
             }
             disableAllButtons();
+            winGif.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    winGif.setVisibility(View.GONE);
+                }
+            }, 2000);
 
         } else if (rount == 9) {
             Toast.makeText(this, "Draw!", Toast.LENGTH_SHORT).show();
@@ -137,7 +160,8 @@ public class friend_screen extends AppCompatActivity implements View.OnClickList
     public  void playagain(){
 
         for (int i = 0; i < 9; i++) {
-            btns[i].setText("");
+            btns[i].setBackground(defaultBackground);
+
             gamestate[i]=-1;
         }
         rount=0;

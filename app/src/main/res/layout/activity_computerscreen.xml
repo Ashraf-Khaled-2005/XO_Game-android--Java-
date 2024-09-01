@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_shape"
     tools:context=".Computerscreen">
     <TextView
         android:id="@+id/player1_com"
@@ -12,8 +13,9 @@
         android:layout_marginStart="44dp"
         android:layout_marginTop="36dp"
         android:text="Player 1"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textSize="26sp"
+        android:textColor="@color/white"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,9 +25,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="68dp"
-        android:text="Computer"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:text="@string/Computer"
+        android:textColor="@color/white"
+
+        android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,10 +36,11 @@
         android:id="@+id/player_status_com"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:textColor="@color/white"
         android:text="0 : 0"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="26sp"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/player1_com" />
@@ -51,13 +55,15 @@
         android:orientation="horizontal">
 
         <Button
+            android:backgroundTintMode="multiply"
+
             android:layout_weight="1"
             android:id="@+id/btn_com_0"
             android:layout_width="135dp"
             android:layout_height="135dp"
             android:layout_marginLeft="3dp"
             android:layout_marginTop="15dp"
-            android:backgroundTint="#413f43"
+            android:backgroundTint="@color/white"
             android:text=""
             android:textColor="@color/white"
             android:textSize="60sp"
@@ -65,13 +71,14 @@
 
         <Button
             android:layout_weight="1"
+            android:backgroundTintMode="multiply"
 
             android:id="@+id/btn_com_1"
             android:layout_width="135dp"
             android:layout_height="135dp"
             android:layout_marginLeft="3dp"
             android:layout_marginTop="15dp"
-            android:backgroundTint="#413f43"
+            android:backgroundTint="@color/white"
             android:text=""
             android:textColor="@color/white"
             android:textSize="60sp"
@@ -79,13 +86,14 @@
 
         <Button
             android:layout_weight="1"
+            android:backgroundTintMode="multiply"
 
             android:id="@+id/btn_com_2"
             android:layout_width="135dp"
             android:layout_height="135dp"
             android:layout_marginLeft="3dp"
             android:layout_marginTop="15dp"
-            android:backgroundTint="#413f43"
+            android:backgroundTint="@color/white"
             android:text=""
             android:textColor="@color/white"
             android:textSize="60sp"
@@ -104,9 +112,11 @@
             android:layout_weight="1"
             android:id="@+id/btn_com_3"
             android:layout_width="135dp"
+            android:backgroundTintMode="multiply"
+
             android:layout_height="135dp"
             android:layout_marginLeft="3dp"
-            android:backgroundTint="#413f43"
+            android:backgroundTint="@color/white"
             android:text=""
             android:textColor="@color/white"
             android:textSize="60sp"
@@ -114,12 +124,13 @@
 
         <Button
             android:layout_weight="1"
+            android:backgroundTintMode="multiply"
 
             android:id="@+id/btn_com_4"
             android:layout_width="135dp"
             android:layout_height="135dp"
             android:layout_marginLeft="3dp"
-            android:backgroundTint="#413f43"
+            android:backgroundTint="@color/white"
             android:text=""
             android:textColor="@color/white"
             android:textSize="60sp"
@@ -127,12 +138,13 @@
 
         <Button
             android:layout_weight="1"
+            android:backgroundTintMode="multiply"
 
             android:id="@+id/btn_com_5"
             android:layout_width="135dp"
             android:layout_height="135dp"
             android:layout_marginLeft="3dp"
-            android:backgroundTint="#413f43"
+            android:backgroundTint="@color/white"
             android:text=""
             android:textColor="@color/white"
             android:textSize="60sp"
@@ -151,10 +163,12 @@
         <Button
             android:layout_weight="1"
             android:id="@+id/btn_com_6"
+            android:backgroundTintMode="multiply"
+
             android:layout_width="135dp"
             android:layout_height="135dp"
             android:layout_marginLeft="3dp"
-            android:backgroundTint="#413f43"
+            android:backgroundTint="@color/white"
             android:text=""
             android:textColor="@color/white"
             android:textSize="60sp"
@@ -162,12 +176,13 @@
 
         <Button
             android:layout_weight="1"
+            android:backgroundTintMode="multiply"
 
             android:id="@+id/btn_com_7"
             android:layout_width="135dp"
             android:layout_height="135dp"
             android:layout_marginLeft="3dp"
-            android:backgroundTint="#413f43"
+            android:backgroundTint="@color/white"
             android:text=""
             android:textColor="@color/white"
             android:textSize="60sp"
@@ -175,12 +190,13 @@
 
         <Button
             android:layout_weight="1"
+            android:backgroundTintMode="multiply"
 
             android:id="@+id/btn_com_8"
             android:layout_width="135dp"
             android:layout_height="135dp"
             android:layout_marginLeft="3dp"
-            android:backgroundTint="#413f43"
+            android:backgroundTint="@color/white"
             android:text=""
             android:textColor="@color/white"
             android:textSize="60sp"
@@ -191,10 +207,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/linear3_com"
-        android:text="RestGame"
+        android:text="@string/restgame"
         android:textAlignment="center"
         android:textSize="20sp"
         android:padding="10dp"
         android:backgroundTint="#34f"
         android:layout_marginTop="5dp"/>
+
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/gif_com"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/win" />
 </androidx.constraintlayout.widget.ConstraintLayout>

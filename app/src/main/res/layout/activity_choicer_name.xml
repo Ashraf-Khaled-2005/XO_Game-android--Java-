@@ -4,90 +4,83 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_shape"
     tools:context=".ChoicerName">
-    <RadioGroup
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/SecendName"
-        android:layout_marginTop="50dp"
-        android:orientation="horizontal"
-
-        android:id="@+id/RadioGroup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="406dp"
-        >
-
-
-        <RadioButton
-            android:id="@+id/RadioO"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:text="O"
-            android:textSize="30sp" />
-
-        <RadioButton
-            android:id="@+id/RadioX"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:text="X"
-            android:textSize="30sp" />
-    </RadioGroup>
 
     <EditText
 
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/edittext_shape"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="150dp"
         android:id="@+id/firstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="First Name"
-        tools:layout_editor_absoluteX="105dp"
-        tools:layout_editor_absoluteY="165dp" />
-    <EditText
-
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="150dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/edittext_shape"
-        app:layout_constraintTop_toBottomOf="@id/firstName"
-        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:hint="@string/first_name"
+        android:inputType="text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="165dp" />
+
+    <EditText
+
         android:id="@+id/SecendName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/edittext_shape"
         android:ems="10"
+        android:hint="@string/secend_name"
         android:inputType="text"
-        android:hint="Secend Name"
-        tools:layout_editor_absoluteX="105dp"
-        tools:layout_editor_absoluteY="165dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/firstName" />
 
     <Button
         android:id="@+id/continue_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="224dp"
         android:background="@drawable/btn_shape"
         android:paddingLeft="30dp"
         android:paddingTop="15dp"
         android:paddingEnd="30dp"
         android:paddingBottom="15dp"
-        android:text="Continue"
+        android:text="@string/continue_text"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RadioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/SecendName" />
+
+    <ImageView
+        android:id="@+id/Ximage"
+        android:layout_width="110dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="69dp"
+        app:layout_constraintEnd_toStartOf="@+id/Oimage"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SecendName"
+        app:srcCompat="@drawable/groupx" />
+
+    <ImageView
+        android:id="@+id/Oimage"
+        android:layout_width="110dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="82dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Ximage"
+        app:layout_constraintTop_toBottomOf="@+id/SecendName"
+        app:srcCompat="@drawable/groupo" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
