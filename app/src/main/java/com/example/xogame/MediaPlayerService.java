@@ -18,6 +18,8 @@ public class MediaPlayerService extends Service {
         super.onCreate();
         player = MediaPlayer.create(this, R.raw.music); // Your music file
         player.setLooping(true); // Loop the music
+        player.setVolume(0.5f, 0.5f); // Set volume to 50% for both left and right channels
+
         Log.d("MediaPlayerService", "Service Created");
     }
 

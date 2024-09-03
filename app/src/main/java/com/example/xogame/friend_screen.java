@@ -41,6 +41,7 @@ public class friend_screen extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sharedPref=new Shared_pref(this);
         issoundon=sharedPref.GetBool("IsSoundOn");
 
         setContentView(R.layout.activity_friend_screen);
@@ -99,7 +100,7 @@ public class friend_screen extends AppCompatActivity implements View.OnClickList
 
             }
             if(issoundon)
-            player.start();
+                 player.start();
             gamestate[id]=1;
         }else{
             if(selectedOption.equals("x"))
@@ -109,8 +110,7 @@ public class friend_screen extends AppCompatActivity implements View.OnClickList
             else
                 ((Button) view).setBackground(getDrawable(R.drawable.groupx));
             if(issoundon)
-
-            player.start();
+                  player.start();
 
             gamestate[id]=2;
         }
