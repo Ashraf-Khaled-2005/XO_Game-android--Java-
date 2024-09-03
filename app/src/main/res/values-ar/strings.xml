@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">XOGame</string>
+    <string name="Setting">الاعدادات</string>
+    <string name="Get_Started">بدأ</string>
+    <string name="Exit">الخروج</string>
+    <string name="Computer">كمبيوتر</string>
+    <string name="Friend">صديق</string>
+    <string name="music">موسيقي</string>
+    <string name="sound">صوت الضغط</string>
+    <string name="language">لغة</string>
+    <string name="player">لاعب</string>
+    <string name="continue_text">استمرار</string>
+    <string name="first_name">الاسم الاول</string>
+    <string name="secend_name">الاسم التاني</string>
+    <string name="restgame">اعادة اللعب</string>
+</resources>

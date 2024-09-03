@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,7 +14,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-public class ChoicerName extends AppCompatActivity {
+public class ChoicerName extends AppCompatActivity implements TextWatcher {
     EditText first,secend;
 
     private  Language lang;
@@ -20,6 +22,7 @@ public class ChoicerName extends AppCompatActivity {
     private String curLang;
     String selection;
     Button btn;
+    String mode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +37,18 @@ public class ChoicerName extends AppCompatActivity {
         }
         setContentView(R.layout.activity_choicer_name);
         Intent i=getIntent();
-        String mode=i.getStringExtra("mode");
+         mode=i.getStringExtra("mode");
       X_btn=findViewById(R.id.Ximage);
       O_btn=findViewById(R.id.Oimage);
         first=findViewById(R.id.firstName);
         secend=findViewById(R.id.SecendName);
+
         btn=findViewById(R.id.continue_btn);
+        btn.setEnabled(false);
+        btn.setAlpha(.5f);
+        first.addTextChangedListener(this);
+        secend.addTextChangedListener(this);
+
         if(mode.equals("c")){
             secend.setEnabled(false);
             secend.setText(getString(R.string.Computer));
@@ -72,7 +81,15 @@ public class ChoicerName extends AppCompatActivity {
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+
+            {
+                if(selection==null){
+                    Toast.makeText(ChoicerName.this, "Please Choose X OR O", Toast.LENGTH_SHORT).show();
+                }else{
+
+
+
                 if(mode.equals("c")){
                     Intent i =new Intent(getBaseContext(), Computerscreen.class);
                     i.putExtra("select",selection.toLowerCase());
@@ -87,7 +104,7 @@ public class ChoicerName extends AppCompatActivity {
                     i.putExtra("first",first.getText().toString());
                     i.putExtra("secend",secend.getText().toString());
                     startActivity(i);
-                }}
+                }}}
         });
     }
     @Override
@@ -97,5 +114,37 @@ public class ChoicerName extends AppCompatActivity {
         if (!curLang.equals(newlang)) {
             recreate();  // Restart the activity to apply the new language
         }
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        btn.setAlpha(0.5f);
+        btn.setEnabled(false);
+    }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        if(!(mode.equals("c"))){
+            if(!(first.getText().toString().isEmpty())&&!(secend.getText().toString().isEmpty())){
+                btn.setEnabled(true);
+                btn.setAlpha(1f);
+
+            }
+
+
+        }else {
+            if(!(first.getText().toString().isEmpty())){
+                btn.setEnabled(true);
+                btn.setAlpha(1f);
+
+            }
+
+        }
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+
     }
 }

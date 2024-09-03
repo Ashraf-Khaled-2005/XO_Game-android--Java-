@@ -97,7 +97,7 @@ public class settingScreen extends AppCompatActivity {
 
     }
     private void showlanguageDialog() {
-        final String[] langs = {"English", "Français", "Deutch", "Italiano"};
+        final String[] langs = {"English", "Français", "Deutch", "Italiano","اللغه العربية"};
         AlertDialog.Builder mbuilder = new AlertDialog.Builder(this); // Use 'this' instead of 'getBaseContext()'
         mbuilder.setTitle("Choose Language");
 
@@ -117,6 +117,10 @@ public class settingScreen extends AppCompatActivity {
                     break;
                 case 3: // Italiano
                     lang.setLocale("it");
+
+
+                    break;  case 4: // Italiano
+                    lang.setLocale("ar");
 
 
                     break;
