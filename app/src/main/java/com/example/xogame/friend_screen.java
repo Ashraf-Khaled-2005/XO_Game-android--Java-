@@ -17,6 +17,7 @@ public class friend_screen extends AppCompatActivity implements View.OnClickList
     MediaPlayer player;
     TextView playerstatus;
     Button [] btns=new Button[9];
+    ImageView player1kind,player2kind;
     Button restgame;
     TextView player1,player2;
     Boolean activieplayer,issoundon;
@@ -51,13 +52,24 @@ public class friend_screen extends AppCompatActivity implements View.OnClickList
         player1=findViewById(R.id.player1);
         player2=findViewById(R.id.player2);
         Intent intent = getIntent();
-
+        player1kind=findViewById(R.id.player1kind);
+player2kind=findViewById(R.id.player2kind);
         // Get the extras passed from the previous activity
          selectedOption = intent.getStringExtra("select");
         String firstName = intent.getStringExtra("first");
         String secendName = intent.getStringExtra("secend");
         player1.setText(firstName);
         player2.setText(secendName);
+if(selectedOption.equals("x")){
+    player1kind.setImageResource(R.drawable.groupx);
+    player2kind.setImageResource(R.drawable.groupo);
+}else{
+    player1kind.setImageResource(R.drawable.groupo);
+    player2kind.setImageResource(R.drawable.groupx);
+
+
+}
+
 
         for (int i = 0; i < 9; i++) {
             String btnID = "btn_" + i;

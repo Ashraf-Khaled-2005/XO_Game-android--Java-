@@ -49,7 +49,7 @@ if(musicOn){
             @Override
             public void onClick(View view) {
                 finish();
-                player.pause();
+                stopService(new Intent(getBaseContext(), MediaPlayerService.class));
             }
         });
 

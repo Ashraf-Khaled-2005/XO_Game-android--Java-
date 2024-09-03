@@ -21,6 +21,8 @@ public class Computerscreen extends AppCompatActivity implements View.OnClickLis
     MediaPlayer player;
     TextView playerstatus;
     Drawable defaultBackground;
+    ImageView player1kind,player2kind;
+
     private ImageView gifImageView;
 private  Shared_pref sharedPref;
 
@@ -54,7 +56,8 @@ private  Shared_pref sharedPref;
         player2=findViewById(R.id.player2_com);
         Intent intent = getIntent();
         gifImageView = findViewById(R.id.gif_com);
-
+        player1kind=findViewById(R.id.player1kind_com);
+        player2kind=findViewById(R.id.player2kind_com);
 
         // Get the extras passed from the previous activity
          selected = intent.getStringExtra("select");
@@ -65,6 +68,15 @@ private  Shared_pref sharedPref;
             int resID = getResources().getIdentifier(btnID, "id", getPackageName());
             btns[i] = findViewById(resID);
             btns[i].setOnClickListener(this); // Set the OnClickListener for each button
+
+        }
+        if(selected.equals("x")){
+            player1kind.setImageResource(R.drawable.groupx);
+            player2kind.setImageResource(R.drawable.groupo);
+        }else{
+            player1kind.setImageResource(R.drawable.groupo);
+            player2kind.setImageResource(R.drawable.groupx);
+
 
         }
 

@@ -9,8 +9,8 @@
 
     <Switch
         android:id="@+id/music_Sw"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
         android:text="@string/music"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/sound_sw"
@@ -22,8 +22,8 @@
 
     <Switch
         android:id="@+id/sound_sw"
-        android:layout_width="116dp"
-        android:layout_height="50dp"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
         android:text="@string/sound"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
