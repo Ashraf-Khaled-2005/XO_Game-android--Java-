@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class friend_screen extends AppCompatActivity implements View.OnClickListener {
     MediaPlayer player;
     TextView playerstatus;
@@ -154,7 +156,8 @@ if(selectedOption.equals("x")){
             }, 2000);
 
         } else if (rount == 9) {
-            Toast.makeText(this, "Draw!", Toast.LENGTH_SHORT).show();
+            Snackbar.make(findViewById(android.R.id.content), "Draw No win ", Snackbar.LENGTH_SHORT).show();
+
             disableAllButtons();
 
         } else {

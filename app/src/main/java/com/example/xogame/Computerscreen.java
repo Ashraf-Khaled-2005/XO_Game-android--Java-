@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.Random;
 
 public class Computerscreen extends AppCompatActivity implements View.OnClickListener {
@@ -109,7 +111,7 @@ private  Shared_pref sharedPref;
                 ((Button) view).setBackground(getDrawable(R.drawable.groupo));
 
             if(issoundon)
-            player.start();
+             player.start();
             gamestate[id]=1;
         }else{
             if(selected.equals("x"))
@@ -152,7 +154,8 @@ private  Shared_pref sharedPref;
             }, 2000);
 
         } else if (rount == 9) {
-            Toast.makeText(this, "Draw!", Toast.LENGTH_SHORT).show();
+            Snackbar.make(findViewById(android.R.id.content), "Draw No win ", Snackbar.LENGTH_SHORT).show();
+
             disableAllButtons();
 
         } else {
